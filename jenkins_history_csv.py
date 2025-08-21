@@ -42,10 +42,10 @@ def get_jobs(url, path=""):
 
 def get_builds(job):
     """
-    Busca builds de um job específico (últimos 50).
+    Busca todos os builds de um job específico.
     """
     resp = requests.get(
-        f"{job['url']}api/json?tree=builds[number,result,timestamp,duration]{{0,50}}",
+        f"{job['url']}api/json?tree=builds[number,result,timestamp,duration]",
         auth=auth
     )
     resp.raise_for_status()
